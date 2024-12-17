@@ -1,0 +1,72 @@
+   <!-- index.html -->
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <title>Media Player</title>
+       <link rel="stylesheet" href="styles.css">
+     </head>
+     <body>
+       <div class="container">
+           <div class="header">
+               <h1 class="title">Media Player</h1>
+               <div class="button-group">
+                   <button id="selectVideos" class="btn">Chọn Videos</button>
+                   <button id="selectMusic" class="btn btn-purple">Chọn Nhạc</button>
+               </div>
+           </div>
+           <div class="merge-section">
+               <h2 class="section-title">Ghép và Lặp Video</h2>
+               <div class="merge-controls">
+                   <div class="merge-item">
+                       <label>Video đã chọn:</label>
+                       <span id="selectedVideo">Chưa chọn video</span>
+                       <button id="selectMergeVideo" class="btn">Chọn Video</button>
+                   </div>
+                   <div class="merge-item">
+                       <label>Nhạc đã chọn:</label>
+                       <span id="selectedAudio">Chưa chọn nhạc</span>
+                       <button id="selectMergeAudio" class="btn btn-purple">Chọn Nhạc</button>
+                   </div>
+                   <div class="merge-item">
+                       <label>Số lần lặp:</label>
+                       <input type="number" id="loopCount" min="1" value="1" class="loop-input">
+                   </div>
+                   <div class="preview-container">
+                       <label>Thời lượng dự kiến: </label>
+                       <span id="estimatedDuration">0:00</span>
+                   </div>
+                   <button id="mergeButton" class="btn btn-merge" disabled>Ghép Media</button>
+               </div>
+               <div id="mergeStatus" class="merge-status"></div>
+           </div>
+           <div class="media-container">
+               <div class="video-container" id="videoWrapper">
+                   <video id="videoPlayer" controls>
+                       Your browser does not support the video element.
+                   </video>
+               </div>
+               <div class="audio-container" id="audioWrapper" style="display: none;">
+                   <audio id="audioPlayer" controls>
+                       Your browser does not support the audio element.
+                   </audio>
+                   <div class="audio-info">
+                       <div id="currentTrack">Chưa có bài hát nào</div>
+                       <div class="audio-controls">
+                           <button id="prevTrack" class="control-btn">⏮</button>
+                           <button id="playPause" class="control-btn">⏯</button>
+                           <button id="nextTrack" class="control-btn">⏭</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="playlist-container">
+               <div class="playlist-tabs">
+                   <button class="tab-btn active" data-type="video">Videos</button>
+                   <button class="tab-btn" data-type="music">Nhạc</button>
+               </div>
+               <div id="playlist"></div>
+           </div>
+       </div>
+       <script src="renderer.js"></script>
+     </body>
+   </html>
